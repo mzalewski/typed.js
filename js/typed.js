@@ -226,6 +226,7 @@
                         // start typing each new char into existing string
                         // curString: arg, self.el.html: original text inside element
                         var nextString = curString.substr(0, curStrPos + 1);
+                        nextString = self.options.onNextLetter(self.arrayPos,nextString) || nextString;
                         if (self.attr) {
                             self.el.attr(self.attr, nextString);
                         } else {
@@ -426,6 +427,7 @@
         preStringTyped: function() {},
         //callback for every typed string
         onStringTyped: function() {},
+         onNextLetter: function() {},
         // callback for reset
         resetCallback: function() {}
     };
